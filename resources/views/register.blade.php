@@ -13,23 +13,27 @@
     <title>TO-DO List</title>
 </head>
 
-<body>
-
-Hello, User!
+Register
 <br>
 <br>
-
 <body>
+
 
 <form action="/tasks" method="get">
 
-    <label for="title"> Title:</label>
-    <input type="text" name="title" id="title">
+    <label for="name"> Name:</label>
+    <input type="name" name="name" id="name">
 
-    <label for="description"> Description:</label>
-    <input type="text" name="description" id="description">
+    <label for="email"> E-Mail:</label>
+    <input type="email" name="email" id="email">
 
-    <button type="submit">Create Task</button>
+    <label for="password"> Password:</label>
+    <input type="password" name="password" id="password">
+
+    <label for="confirmPassword">Confirm Password:</label>
+    <input type="password" name="confirmPassword" id="confirmPassword">
+
+    <button type="submit">Register</button>
 
 </form>
 

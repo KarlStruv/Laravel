@@ -13,23 +13,20 @@
     <title>TO-DO List</title>
 </head>
 
-<body>
-
-Hello, User!
+Log in
 <br>
 <br>
-
 <body>
 
-<form action="/tasks" method="get">
 
-    <label for="title"> Title:</label>
-    <input type="text" name="title" id="title">
+<form action="/tasks" method="get" id="loginForm">
+    <label for="email"> E-Mail:</label>
+    <input type="email" name="email" id="email">
 
-    <label for="description"> Description:</label>
-    <input type="text" name="description" id="description">
+    <label for="password"> Password:</label>
+    <input type="password" name="password" id="password">
 
-    <button type="submit">Create Task</button>
+    <button type="submit">Log in</button>
 
 </form>
 
