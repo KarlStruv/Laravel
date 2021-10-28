@@ -19,7 +19,7 @@ Register
 <body>
 
 
-<form action="/tasks" method="get">
+<form action="/register" method="POST">
 
     <label for="name"> Name:</label>
     <input type="name" name="name" id="name">

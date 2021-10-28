@@ -1,6 +1,8 @@
 <?php
 
-use App\Http\Controllers\TasksController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Tasks\TasksController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -17,11 +19,11 @@ use Illuminate\Support\Facades\Route;
 
 //Route::get('/tasks', [TasksController::class, 'index']);
 
-Route::get('/', [TasksController::class, 'showLoginForm']);
-Route::post('/', [TasksController::class, 'login']);
+Route::get('/', [LoginController::class, 'showLoginForm']);
+Route::post('/', [LoginController::class, 'login']);
 
-Route::get('/register', [TasksController::class, 'showRegisterForm']);
-Route::post('/register', [TasksController::class, 'register']);
+Route::get('/register', [RegisterController::class, 'showRegisterForm']);
+Route::post('/register', [RegisterController::class, 'register']);
 
 Route::get('/tasks', [TasksController::class, 'index']);
 Route::prefix('/task')->group(function (){
