@@ -1,10 +1,7 @@
 <?php
 
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\Tasks\TasksController;
+use App\Http\Controllers\TasksController;
 use Illuminate\Support\Facades\Route;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -17,19 +14,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/tasks', [TasksController::class, 'index']);
-
-Route::get('/', [LoginController::class, 'showLoginForm']);
-Route::post('/', [LoginController::class, 'login']);
-
-Route::get('/register', [RegisterController::class, 'showRegisterForm']);
-Route::post('/register', [RegisterController::class, 'register']);
-
-Route::get('/tasks', [TasksController::class, 'index']);
-Route::prefix('/task')->group(function (){
-    Route::post('/create', [TasksController::class, 'store']);
-    Route::get('/create', [TasksController::class, 'showStoreForm']);
-    Route::put('/{id}', [TasksController::class, 'edit']);
-    Route::get('/{id}', [TasksController::class, 'showEditForm']);
-    Route::delete('/{id}', [TasksController::class, 'destroy']);
+Route::get('/', function () {
+    return view('welcome');
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+Route::resource('components', TasksController::class);
+Route::post('components/{task}/complete', [TasksController::class, 'complete'])
+    ->middleware('auth')
+    ->name('components.complete');
+
+require __DIR__ . '/auth.php';
